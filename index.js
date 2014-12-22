@@ -1,5 +1,5 @@
 // If you want a DB connection
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
 // Executed once per bot
 
@@ -20,9 +20,9 @@ plugin.load = function(app) {
     res.sendFile('example.html');
   });
   app.get('/example/:channel', function(req, res, next) {
-    mongoose.model(...).findOne({ channel: req.params.channel }, function(err, example){
-      res.send(err || example);
-    });
+    // mongoose.model(...).findOne({ channel: req.params.channel }, function(err, example){
+      res.send({ example: 'Hello World!'});
+    // });
   });
 }
  
