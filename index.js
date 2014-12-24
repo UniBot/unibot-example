@@ -15,7 +15,7 @@ module.exports = function init(options){
   var config = options.config;
 
   webserver.get('/example', function(req, res, next){
-    res.sendFile('./index.html');
+    res.sendFile(__dirname + '/index.html');
   });
 
   webserver.get('/example/:channel', function(req, res, next) {
@@ -30,10 +30,18 @@ module.exports = function init(options){
     // channel.join(function(who){ /* do something */ });
     // channel.leave(function(who, reason){ /* do something */ });
     // regexpattern, callback
+    /* @TODO:  SYNTAX COMING SOON:
     channel.message('^hi unibot', function(from, matches){
       channel.say('Hello ' + from); // in-channel reply
       channel.say('Hello', from); // private reply
     });
+    */
+
+    return {
+      '^hi unibot': function(from, matches){
+        channel.say('Hello ' + from); // in-channel reply
+        channel.say('Hello', from); // private reply
+      }
+    };
   };
- 
 };
