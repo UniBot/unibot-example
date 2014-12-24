@@ -15,7 +15,7 @@ module.exports = function init(options){
   var config = options.config;
 
   webserver.get('/example', function(req, res, next){
-    res.sendFile('example.html');
+    res.sendFile('./index.html');
   });
 
   webserver.get('/example/:channel', function(req, res, next) {
